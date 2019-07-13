@@ -20,7 +20,7 @@
           <a :href="`mailto:${ employee.email }`">{{employee.email}}</a>
         </td>
         <td>
-          <Button :value="'Edit'" @click.native="handleEdit" />
+          <Button :value="'Edit'" @click.native="handleEdit(employee.id)" />
         </td>
       </tr>
     </table>
@@ -59,9 +59,8 @@ export default {
           this.loading = false;
         });
     },
-    handleEdit() {
-      console.log("test");
-      router.push("/edit");
+    handleEdit(id) {
+      router.push(`/edit/${id}`);
     }
   }
 };

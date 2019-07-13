@@ -20,7 +20,7 @@ const router = new VueRouter({
       component: EmployeesList
     },
     {
-      path: '/edit',
+      path: '/edit/:id',
       name: 'edit',
       component: Edit
     },
