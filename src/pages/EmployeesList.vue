@@ -19,14 +19,22 @@
         <td>
           <a :href="`mailto:${ employee.email }`">{{employee.email}}</a>
         </td>
-        <td>Edit</td>
+        <td>
+          <Button :value="'Edit'" @click.native="handleEdit" />
+        </td>
       </tr>
     </table>
   </div>
 </template>
 <script>
 import axios from "axios";
+import Button from "@components/Button";
+import router from "../router";
+
 export default {
+  components: {
+    Button
+  },
   data() {
     return {
       loading: false,
@@ -50,6 +58,10 @@ export default {
         .finally(() => {
           this.loading = false;
         });
+    },
+    handleEdit() {
+      console.log("test");
+      router.push("/edit");
     }
   }
 };
