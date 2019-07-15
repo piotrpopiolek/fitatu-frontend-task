@@ -51,7 +51,7 @@ export default {
     fetchData() {
       this.loading = true;
       axios
-        .get("https://jsonplaceholder.typicode.com/users")
+        .get("http://localhost:3000/users")
         .then(({ data }) => {
           this.employees = data;
         })
