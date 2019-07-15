@@ -2,7 +2,10 @@
   <div class="app">
     <Header />
     <div class="pages-container">
-      <Menu />
+      <MobileMenu v-if="mobile" />
+      <div v-else>
+        <Menu />
+      </div>
       <router-view />
     </div>
     <Footer />
@@ -12,11 +15,20 @@
 import Header from "@components/Header";
 import Footer from "@components/Footer";
 import Menu from "@components/Menu";
+import MobileMenu from "@components/MobileMenu";
+import { isMobile } from "mobile-device-detect";
+
 export default {
   components: {
     Header,
     Footer,
-    Menu
+    Menu,
+    MobileMenu
+  },
+  data() {
+    return {
+      mobile: isMobile
+    };
   }
 };
 </script>
